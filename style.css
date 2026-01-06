@@ -1,0 +1,148 @@
+/* Base & themes */
+:root {
+  --bg-dark: #1f1c2c;
+  --bg-light: #f5f7fa;
+  --card-dark: rgba(255,255,255, 0.07);
+  --card-light: rgba(255,255,255, 0.85);
+  --text-dark: #222;
+  --text-light: #fff;
+  --primary: #00c9ff;
+  --primary-dark: #0099cc;
+  --accent: #92fe9d;
+}
+
+body.dark-theme {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #4d4a72 100%);
+  color: var(--text-light);
+}
+
+body.light-theme {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 999;
+  font-size: 1.5rem;
+  color: var(--text-light);
+}
+
+body.light-theme .theme-toggle {
+  color: var(--text-dark);
+}
+
+/* Card / container */
+.card {
+  background-color: var(--card-dark);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+body.light-theme .card {
+  background-color: var(--card-light);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.005);
+}
+
+.card-header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0;
+}
+
+body.light-theme .card-header h1 {
+  color: var(--primary-dark);
+}
+
+.lead {
+  opacity: 0.85;
+}
+
+/* Form controls */
+.form-control {
+  border-radius: 10px;
+  border: none;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 12px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(0, 201, 255, 0.4);
+}
+
+/* Prediction text */
+#prediction {
+  margin-top: 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+/* Chart */
+canvas {
+  margin-top: 30px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--primary);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--primary);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .card-header h1 {
+    font-size: 1.8rem;
+  }
+  #prediction {
+    font-size: 1.2rem;
+  }
+  .btn-primary {
+    font-size: 1rem;
+  }
+}
